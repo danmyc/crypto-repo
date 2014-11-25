@@ -13,17 +13,23 @@ using namespace std;
 
 
 
-void extract (char to[], char from[], int num) { for (int i = 0; i<32; i++) { to[i] = from[num*32 + i]; } }
+void extract (char to[], char from[], int num) {
+	for (int i = 0; i<32; i++) {
+		to[i] = from[num*32 + i];
+	}
+}
 
-void insert (char from[], char to[], int num) { for (int i = 0; i<32; i++) { to[num*32 + i] = from[i]; } }
+void insert (char from[], char to[], int num) {
+	for (int i = 0; i<32; i++) {
+		to[num*32 + i] = from[i];
+	}
+}
 
 
 
 
 class cbc {
 
-
-	
 
 
 public:
@@ -42,7 +48,8 @@ public:
 		for (int j = string_length; j<(num_blocks * 32); j++) {
 			m[j] = HEX2DEC(padding/16);
 			m[j+1] = HEX2DEC(padding%16);
-			j+=2; }
+			j+=2;
+		}
 			
 		insert(IV, c, 0);
 		HEX2BLOCK (add, IV);
@@ -57,7 +64,8 @@ public:
 			BLOCK2HEX (block_hex, block);
 
 			insert (block_hex, c, i+1);
-			blockCopy (add, block);	}
+			blockCopy (add, block);
+		}
 
 		c[num_blocks * 32] = '\0';
 		
@@ -88,7 +96,8 @@ public:
 			HEX2BLOCK (add, block_hex);
 
 			BLOCK2HEX (block_hex, block);
-			insert (block_hex, m, i-1); }
+			insert (block_hex, m, i-1);
+		}
 
 		padding = HEX2DEC (m[num_blocks*32 - 2]) * 16;
 		padding += HEX2DEC (m[num_blocks*32 - 1]);

@@ -32,8 +32,6 @@ void blockDisplay (block block);
 
 
 
-// class AES;
-
 class AES {
 
 
@@ -62,7 +60,7 @@ public:
 
     void decrypt (block &b, char k[]);
 
-}; // checked
+};
 
 extern AES aes;
 

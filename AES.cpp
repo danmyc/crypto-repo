@@ -1,4 +1,4 @@
-#include "aes.h"
+#include "AES.h"
 
 
 typedef unsigned char block[4][4];
@@ -351,7 +351,6 @@ void HEX2BLOCK(block &block, char str[]) {
             /* cout<<block[i][j]; */
         }
     }
-//    blockDisplay (block);
 }
 
 
@@ -430,8 +429,6 @@ void AES::keyExpansion (char k[]) {
         byteXOR (key[i][2][2], key[i-1][2][3], key[i][2][3]);
         byteXOR (key[i][3][2], key[i-1][3][3], key[i][3][3]);
     }
-
-    // for (i = 0; i<=10; i++) { blockDisplay(key[i]); }
 
 }
 
@@ -552,9 +549,9 @@ void AES::mixColumnsInverse (block &b) {
 
 void AES::encrypt (block &b, char k[]) {
 
-    keyExpansion (k); // checked
+    keyExpansion (k);
 
-    XOR(b, key[0], b); // checked
+    XOR(b, key[0], b);
 
 
 
@@ -591,7 +588,7 @@ void AES::decrypt (block &b, char k[]) {
 
 }
 
-AES aes; // checked
+AES aes;
 
 
 int main(int argc, char const *argv[]) {

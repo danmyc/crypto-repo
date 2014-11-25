@@ -1,3 +1,6 @@
+#ifndef CBC_H
+
+#define CBC_H
 
 #include <iostream>
 using namespace std;
@@ -26,3 +29,5 @@ public:
 };
 
 extern CBC cbc;
+
+#endif

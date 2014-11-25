@@ -1,3 +1,7 @@
+#ifndef AES_H
+
+#define AES_H
+
 #include <iostream>
 using namespace std;
 #include <curses.h>
@@ -61,3 +65,5 @@ public:
 }; // checked
 
 extern AES aes;
+
+#endif
